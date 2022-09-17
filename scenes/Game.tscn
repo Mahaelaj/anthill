@@ -1,0 +1,153 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scripts/Grid.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/hammer_t.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Game.gd" type="Script" id=3]
+[ext_resource path="res://scripts/HUDsManager.gd" type="Script" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/exit_t.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/egg_t.png" type="Texture" id=7]
+[ext_resource path="res://scripts/Ant.gd" type="Script" id=8]
+[ext_resource path="res://scripts/RoomSelectHUD.gd" type="Script" id=9]
+[ext_resource path="res://assets/images/rabbit_t.png" type="Texture" id=10]
+[ext_resource path="res://scripts/PathFinding.gd" type="Script" id=11]
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Ant" type="Node2D" parent="."]
+position = Vector2( 150, 50 )
+script = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Ant"]
+scale = Vector2( 0.0390625, 0.0390625 )
+z_index = 1
+texture = ExtResource( 7 )
+
+[node name="LoiterTimer" type="Timer" parent="Ant"]
+wait_time = 4.0
+one_shot = true
+
+[node name="Ant2" type="Node2D" parent="."]
+position = Vector2( 150, 50 )
+script = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Ant2"]
+scale = Vector2( 0.0390625, 0.0390625 )
+z_index = 1
+texture = ExtResource( 10 )
+
+[node name="LoiterTimer" type="Timer" parent="Ant2"]
+wait_time = 4.0
+one_shot = true
+
+[node name="Rooms" type="Node" parent="."]
+
+[node name="Grid" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[node name="Builder" type="Node" parent="."]
+
+[node name="HUDsManager" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="MainHUD" type="CanvasLayer" parent="HUDsManager"]
+
+[node name="BuildButton" type="Button" parent="HUDsManager/MainHUD"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -64.0
+margin_top = 8.0
+margin_right = -4.0
+margin_bottom = 72.0
+
+[node name="Sprite" type="Sprite" parent="HUDsManager/MainHUD/BuildButton"]
+position = Vector2( 32, 28 )
+scale = Vector2( 0.0625, 0.0703125 )
+texture = ExtResource( 2 )
+
+[node name="RoomBuildControl" type="Control" parent="HUDsManager"]
+visible = false
+script = ExtResource( 9 )
+
+[node name="RoomSelectControl" type="Control" parent="HUDsManager/RoomBuildControl"]
+margin_left = 96.0
+margin_top = 360.0
+margin_right = 1536.0
+margin_bottom = 512.0
+
+[node name="FoodRoomSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/RoomSelectControl"]
+anchor_left = 0.256
+anchor_top = 0.053
+anchor_right = 0.433
+anchor_bottom = 0.947
+margin_left = 23.36
+margin_top = -0.0560007
+margin_right = 32.48
+margin_bottom = 12.0561
+
+[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/RoomSelectControl/FoodRoomSelectButton"]
+position = Vector2( 136, 72 )
+scale = Vector2( 4, 2.375 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="HUDsManager/RoomBuildControl/RoomSelectControl/FoodRoomSelectButton"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 288.0
+margin_bottom = 128.0
+text = "Food
+
+"
+
+[node name="ElevatorRoomSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/RoomSelectControl"]
+anchor_left = -0.033
+anchor_top = 0.053
+anchor_right = 0.15
+anchor_bottom = 0.947
+margin_left = -8.48
+margin_top = 7.944
+margin_right = -1.52588e-05
+margin_bottom = 12.056
+
+[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/RoomSelectControl/ElevatorRoomSelectButton"]
+position = Vector2( 136, 72 )
+scale = Vector2( 4, 2.375 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="HUDsManager/RoomBuildControl/RoomSelectControl/ElevatorRoomSelectButton"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 288.0
+margin_bottom = 128.0
+text = "Elevator
+"
+
+[node name="RoomSelectBuildControl" type="Control" parent="HUDsManager/RoomBuildControl"]
+
+[node name="CloseButton" type="Button" parent="HUDsManager/RoomBuildControl"]
+margin_left = 896.0
+margin_top = 8.0
+margin_right = 960.0
+margin_bottom = 72.0
+
+[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/CloseButton"]
+position = Vector2( 32, 28 )
+scale = Vector2( 0.0625, 0.0703125 )
+texture = ExtResource( 6 )
+
+[node name="PathFinding" type="Node" parent="."]
+script = ExtResource( 11 )
+
+[node name="Helper" type="ColorRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.183041, 0.208451 )
+color = Color( 0.294118, 0.0156863, 0.0156863, 1 )
+
+[connection signal="timeout" from="Ant/LoiterTimer" to="Ant" method="_on_LoiterTimer_timeout"]
+[connection signal="timeout" from="Ant2/LoiterTimer" to="Ant2" method="_on_LoiterTimer_timeout"]
+[connection signal="button_up" from="HUDsManager/MainHUD/BuildButton" to="HUDsManager" method="_on_BuildButton_button_up"]
+[connection signal="button_up" from="HUDsManager/RoomBuildControl/RoomSelectControl/FoodRoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_FoodRoomSelectButton_button_up"]
+[connection signal="button_up" from="HUDsManager/RoomBuildControl/RoomSelectControl/ElevatorRoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_ElevatorRoomSelectButton_button_up"]
+[connection signal="button_up" from="HUDsManager/RoomBuildControl/CloseButton" to="HUDsManager/RoomBuildControl" method="_on_CloseButton_button_up"]
