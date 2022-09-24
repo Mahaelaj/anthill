@@ -4,35 +4,57 @@ var aStarPointPath = []
 var loiterPosition: AStarPosition
 var nextPosition: Vector2Obj
 var speed = 25
+export(String) var antName
+
+class_name Ant
+
+enum activityEnum {LOITERING, WORKING}
+var activity = activityEnum.LOITERING
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	getNewPath()
+	getNewLoiterPath()
 
-func getNewPath():
+func getNewLoiterPath():
+	if activity != activityEnum.LOITERING:
+		return
 	var newLoiterAstarPosition: AStarPosition = AntManager.getEmptyLoiteringPosition()
 	if newLoiterAstarPosition == null:
 		$LoiterTimer.start()
 	else:
 		loiterPosition = newLoiterAstarPosition
-		var pathFinding = get_node("/root/Game/PathFinding")
-		aStarPointPath = pathFinding.getPointPath(global_position, loiterPosition.aStarId)
+		updateAStarPointPath(loiterPosition)
 
 func _on_LoiterTimer_timeout():
-	getNewPath()
+	getNewLoiterPath()
+
+func setAntWorking(aStarPos: AStarPosition):
+	resetPath()
+	activity = activityEnum.WORKING
+	updateAStarPointPath(aStarPos)
+
+func setAntLoitering():
+	resetPath()
+	activity = activityEnum.LOITERING
+	getNewLoiterPath()
+	
+func updateAStarPointPath(aStarPos: AStarPosition):
+	aStarPointPath = PathFinding.getPointPath(global_position, aStarPos.aStarId)
 
 func resetPath():
 	if (loiterPosition != null): 
 		AntManager.addEmptyLoiteringPositionAndShuffle(loiterPosition)
-		loiterPosition = null
-		nextPosition = null
-		aStarPointPath = []
+	loiterPosition = null
+	nextPosition = null
+	aStarPointPath = []
+		
+func getNextPos(point: int):
+	return Vector2Obj.new(PathFinding.getPointPosition(point))
 	
 func _process(delta):
 	if nextPosition == null: 
 		if aStarPointPath.size() > 0:
-			var pathFinding = get_node("/root/Game/PathFinding")
-			nextPosition = Vector2Obj.new(pathFinding.getPointPosition(aStarPointPath[0]))
-			var helper = get_node("/root/Game/Helper")
+			nextPosition = getNextPos(aStarPointPath[0])
 		else:
 			return
 			
@@ -43,4 +65,5 @@ func _process(delta):
 		nextPosition = null
 		if aStarPointPath.size() == 0: 
 			resetPath()
-			$LoiterTimer.start()
+			if activity == activityEnum.LOITERING:
+				$LoiterTimer.start()

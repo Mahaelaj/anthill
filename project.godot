@@ -15,14 +15,14 @@ _global_script_classes=[ {
 "path": "res://scripts/classes/AStarPosition.gd"
 }, {
 "base": "Node2D",
+"class": "Ant",
+"language": "GDScript",
+"path": "res://scripts/Ant.gd"
+}, {
+"base": "Node2D",
 "class": "ColonyRoom",
 "language": "GDScript",
 "path": "res://scripts/classes/ColonyRoom.gd"
-}, {
-"base": "HBoxContainer",
-"class": "ContributorClass",
-"language": "GDScript",
-"path": "res://addons/github-integration/scripts/ContributorClass.gd"
 }, {
 "base": "ColonyRoom",
 "class": "ElevatorRoom",
@@ -34,26 +34,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/classes/colonyRooms/FoodRoom.gd"
 }, {
-"base": "PanelContainer",
-"class": "GistItem",
-"language": "GDScript",
-"path": "res://addons/github-integration/scripts/GistItem.gd"
-}, {
-"base": "",
-"class": "GitAPI",
-"language": "NativeScript",
-"path": "res://addons/godot-git-plugin/git_api.gdns"
-}, {
-"base": "HBoxContainer",
-"class": "InvitationItem",
-"language": "GDScript",
-"path": "res://addons/github-integration/scripts/InvitationItem.gd"
-}, {
-"base": "PanelContainer",
-"class": "RepositoryItem",
-"language": "GDScript",
-"path": "res://addons/github-integration/scripts/RepositoryItem.gd"
-}, {
 "base": "Object",
 "class": "Vector2Obj",
 "language": "GDScript",
@@ -61,14 +41,10 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "AStarPosition": "",
+"Ant": "",
 "ColonyRoom": "",
-"ContributorClass": "",
 "ElevatorRoom": "",
 "FoodRoom": "",
-"GistItem": "",
-"GitAPI": "",
-"InvitationItem": "",
-"RepositoryItem": "",
 "Vector2Obj": ""
 }
 
@@ -82,6 +58,9 @@ config/icon="res://icon.png"
 
 Constants="*res://scripts/Constants.gd"
 AntManager="*res://scripts/AntManager.gd"
+PathFinding="*res://scripts/PathFinding.gd"
+Grid="*res://scripts/Grid.gd"
+Sorters="*res://scripts/Sorters.gd"
 
 [display]
 
@@ -96,7 +75,7 @@ version_control_plugin_name="GitAPI"
 
 [gdnative]
 
-singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
+singletons=[  ]
 
 [global]
 

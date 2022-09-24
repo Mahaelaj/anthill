@@ -10,5 +10,9 @@ margin_right = 128.0
 margin_bottom = 64.0
 color = Color( 0.270588, 0.658824, 0.321569, 1 )
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2( 96, 64 )
+[node name="Button" type="Button" parent="."]
+margin_right = 128.0
+margin_bottom = 64.0
+flat = true
+
+[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]

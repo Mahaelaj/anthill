@@ -2,18 +2,22 @@ extends Node2D
 
 var horizontalTileSize: int
 var roomType
+var loiterPositions = []
+var workPositions = []
 var aStarPositions = []
-var loiterAstarPositions = []
 var workAstarPositions = []
+var assignedAnts = []
+var resourceType 
+var numAntsWorking = 0
 
 class_name ColonyRoom
 
 func _init(_horizontalTileSize: int, _roomType, _loiterPositions, _workPositions):
 	horizontalTileSize = _horizontalTileSize
 	roomType = _roomType
-	loiterAstarPositions = _loiterPositions
-	print ("horizontalTileSize ", horizontalTileSize)
-	print ("roomType ", roomType)
+	loiterPositions = _loiterPositions
+	workPositions = _workPositions
+	assignedAnts.resize(workPositions.size())
 
 func init():
 	if roomType == Constants.RoomType.ELEVATOR:
@@ -21,11 +25,35 @@ func init():
 		astarPos.global_position = Vector2(global_position.x + 15, global_position.y)
 		aStarPositions.append(astarPos)
 	
-	for i in loiterAstarPositions:
+	for i in loiterPositions:
 		var astarPos = AStarPosition.new(AStarPosition.StandingType.LOITER)
 		astarPos.global_position = Vector2(global_position.x + i, global_position.y)
 		aStarPositions.append(astarPos)
 		AntManager.emptyLoiteringPositions.append(astarPos)
+
+	for i in workPositions:
+		var astarPos = AStarPosition.new(AStarPosition.StandingType.WORK)
+		astarPos.global_position = Vector2(global_position.x + i, global_position.y)
+		aStarPositions.append(astarPos)
+		workAstarPositions.append(astarPos)
 		
-	var roomsNode = get_node("/root/Game/Rooms")
-	roomsNode.add_child(self)
+	aStarPositions.sort_custom(Sorters, "sortAStarPositionsAsc")
+
+func onRoomClicked(room: ColonyRoom):
+	get_node(Constants.hudsManagerPath).openRoomAdmin(room)
+	pass
+	
+func assignAnt(ant: Ant, index: int):
+	if assignedAnts[index] != null:
+		assignedAnts[index].setAntLoitering()
+		assignedAnts[index] = null
+		numAntsWorking-=1
+	
+	var antIndex = assignedAnts.find(ant)
+	if (antIndex != -1):
+		numAntsWorking-=1
+		assignedAnts[antIndex] = null
+	
+	assignedAnts[index] = ant
+	numAntsWorking +=1
+	return workAstarPositions[index]

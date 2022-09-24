@@ -7,7 +7,7 @@ export var columns = 11
 var grid = []
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _init():
 	var cell_size =  Vector2(cell_height_px, cell_height_px)
 	for r in rows:
 		for c in columns:

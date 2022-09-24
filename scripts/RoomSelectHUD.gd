@@ -11,8 +11,7 @@ func _on_FoodRoomSelectButton_button_up():
 	
 func roomSelected(roomType): 
 	$RoomSelectControl.visible = false
-	var grid = get_node("/root/Game/Grid")
-	var buildOptionPositions = grid.getRoomBuildOptions(Constants.Rooms[roomType].col, roomType == Constants.RoomType.ELEVATOR)
+	var buildOptionPositions = Grid.getRoomBuildOptions(Constants.Rooms[roomType].col, roomType == Constants.RoomType.ELEVATOR)
 	var buildOption
 	match Constants.Rooms[roomType].col:
 			1: buildOption = OneCellBuildOption
@@ -20,7 +19,7 @@ func roomSelected(roomType):
 			
 	for i in buildOptionPositions:
 		var buildOptionInstance = buildOption.instance()
-		buildOptionInstance.set_position(grid.getGridCellPos(i))
+		buildOptionInstance.set_position(Grid.getGridCellPos(i))
 		buildOptionInstance.gridRow = i.y
 		buildOptionInstance.gridColumn = i.x
 		buildOptionInstance.roomType = roomType
