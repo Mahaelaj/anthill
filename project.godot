@@ -30,6 +30,11 @@ _global_script_classes=[ {
 "path": "res://scripts/classes/colonyRooms/ElevatorRoom.gd"
 }, {
 "base": "ColonyRoom",
+"class": "EnergyRoom",
+"language": "GDScript",
+"path": "res://scripts/EnergyRoom.gd"
+}, {
+"base": "ColonyRoom",
 "class": "FoodRoom",
 "language": "GDScript",
 "path": "res://scripts/classes/colonyRooms/FoodRoom.gd"
@@ -44,6 +49,7 @@ _global_script_class_icons={
 "Ant": "",
 "ColonyRoom": "",
 "ElevatorRoom": "",
+"EnergyRoom": "",
 "FoodRoom": "",
 "Vector2Obj": ""
 }

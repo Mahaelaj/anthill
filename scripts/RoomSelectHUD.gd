@@ -9,6 +9,9 @@ func _on_ElevatorRoomSelectButton_button_up():
 func _on_FoodRoomSelectButton_button_up():
 	roomSelected(Constants.RoomType.FOOD)
 	
+func _on_EnergyRoomSelectButton_button_up():
+	roomSelected(Constants.RoomType.ENERGY)
+	
 func roomSelected(roomType): 
 	$RoomSelectControl.visible = false
 	var buildOptionPositions = Grid.getRoomBuildOptions(Constants.Rooms[roomType].col, roomType == Constants.RoomType.ELEVATOR)

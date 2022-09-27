@@ -49,11 +49,12 @@ func assignAnt(ant: Ant, index: int):
 		assignedAnts[index] = null
 		numAntsWorking-=1
 	
-	var antIndex = assignedAnts.find(ant)
-	if (antIndex != -1):
-		numAntsWorking-=1
-		assignedAnts[antIndex] = null
-	
 	assignedAnts[index] = ant
 	numAntsWorking +=1
 	return workAstarPositions[index]
+	
+func maybeRemoveAnt(ant: Ant):
+	for i in range(assignedAnts.size()):
+		if (assignedAnts[i] == ant): 
+			assignedAnts[i] = null
+			numAntsWorking -= 1

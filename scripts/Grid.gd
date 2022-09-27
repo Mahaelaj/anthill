@@ -48,7 +48,6 @@ func setCell(room, row: int, col: int):
 		grid[row][col + i] = room
 		
 	room.set_position(Vector2(col * cell_height_px, row * cell_height_px))
-	add_child(room)
 	
 func getRoomBuildOptions(room_col_size: int, is_elevator: bool) -> Array:
 	var gridCellBuildOptions = []
