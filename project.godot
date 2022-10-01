@@ -29,15 +29,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/classes/colonyRooms/ElevatorRoom.gd"
 }, {
-"base": "ColonyRoom",
+"base": "ResourceRoom",
 "class": "EnergyRoom",
 "language": "GDScript",
-"path": "res://scripts/EnergyRoom.gd"
+"path": "res://scripts/classes/colonyRooms/EnergyRoom.gd"
 }, {
-"base": "ColonyRoom",
+"base": "ResourceRoom",
 "class": "FoodRoom",
 "language": "GDScript",
 "path": "res://scripts/classes/colonyRooms/FoodRoom.gd"
+}, {
+"base": "ColonyRoom",
+"class": "ResourceRoom",
+"language": "GDScript",
+"path": "res://scripts/classes/ResourceRoom.gd"
 }, {
 "base": "Object",
 "class": "Vector2Obj",
@@ -51,6 +56,7 @@ _global_script_class_icons={
 "ElevatorRoom": "",
 "EnergyRoom": "",
 "FoodRoom": "",
+"ResourceRoom": "",
 "Vector2Obj": ""
 }
 

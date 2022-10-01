@@ -3,5 +3,6 @@ extends ColonyRoom
 class_name ElevatorRoom
 
 # Class Constructor
-func _init().(1, Constants.RoomType.ELEVATOR, [], []):
-	pass
+func init():
+	var astarPos = addAstarPosition(AStarPosition.StandingType.ELEVATOR, Vector2(15, 0))
+	colonyRoominit(1, Constants.RoomType.ELEVATOR, [])

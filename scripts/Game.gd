@@ -25,14 +25,14 @@ func addRoom(roomType, row, col):
 		Constants.RoomType.ENERGY:
 			room = EnergyRoom.instance()
 			maxEnergy += 300
+	room.init()
 	Grid.setCell(room, row, col)
 	$Rooms.add_child(room)
-	room.init()
 	PathFinding.connectRoom(row, col)
 
 func assignAntToRoom(ant: Ant, room: ColonyRoom, index: int):
 	if ant.activity == ant.activityEnum.WORKING:
-		var roomNodes = $Rooms.get_tree().get_nodes_in_group("workingRooms")
+		var roomNodes = $Rooms.get_tree().get_nodes_in_group("ResourceRooms")
 		for room in roomNodes:
 			room.maybeRemoveAnt(ant)
 	var aStarPos = room.assignAnt(ant, index)
