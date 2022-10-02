@@ -1,8 +1,8 @@
 extends Node2D
 
-var ElevatorRoom = preload("res://scenes/rooms/ElevatorRoom.tscn")
-var FoodRoom = preload("res://scenes/rooms/FoodRoom.tscn")
-var EnergyRoom = preload("res://scenes/rooms/EnergyRoom.tscn")
+var ElevatorR = preload("res://scenes/rooms/ElevatorRoom.tscn")
+var FoodR = preload("res://scenes/rooms/FoodRoom.tscn")
+var EnergyR = preload("res://scenes/rooms/EnergyRoom.tscn")
 
 var food: float = 0
 var maxFood = 0
@@ -12,18 +12,18 @@ var maxEnergy = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	addRoom(Constants.RoomType.ELEVATOR, 2, 5)
+	addRoom(ElevatorRoom, 2, 5)
 	
 func addRoom(roomType, row, col):
 	var room
 	match roomType:
-		Constants.RoomType.ELEVATOR:
-			room = ElevatorRoom.instance()
-		Constants.RoomType.FOOD:
-			room = FoodRoom.instance()
+		ElevatorRoom:
+			room = ElevatorR.instance()
+		FoodRoom:
+			room = FoodR.instance()
 			maxFood += 300
-		Constants.RoomType.ENERGY:
-			room = EnergyRoom.instance()
+		EnergyRoom:
+			room = EnergyR.instance()
 			maxEnergy += 300
 	room.init()
 	Grid.setCell(room, row, col)

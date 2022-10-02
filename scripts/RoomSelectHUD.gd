@@ -4,19 +4,19 @@ var OneCellBuildOption = preload("res://scenes/1CellBuildOption.tscn")
 var twoCellBuildOption = preload("res://scenes/2CellBuildOption.tscn")
 
 func _on_ElevatorRoomSelectButton_button_up():
-	roomSelected(Constants.RoomType.ELEVATOR)
+	roomSelected(ElevatorRoom, true)
 
 func _on_FoodRoomSelectButton_button_up():
-	roomSelected(Constants.RoomType.FOOD)
+	roomSelected(FoodRoom, false)
 	
 func _on_EnergyRoomSelectButton_button_up():
-	roomSelected(Constants.RoomType.ENERGY)
+	roomSelected(EnergyRoom, false)
 	
-func roomSelected(roomType): 
+func roomSelected(roomType, isElevator): 
 	$RoomSelectControl.visible = false
-	var buildOptionPositions = Grid.getRoomBuildOptions(Constants.Rooms[roomType].col, roomType == Constants.RoomType.ELEVATOR)
+	var buildOptionPositions = Grid.getRoomBuildOptions(roomType.getHorizontalTileSize(), isElevator)
 	var buildOption
-	match Constants.Rooms[roomType].col:
+	match roomType.getHorizontalTileSize():
 			1: buildOption = OneCellBuildOption
 			2: buildOption = twoCellBuildOption
 			
@@ -33,7 +33,7 @@ func _on_CloseButton_button_up():
 	_reset()
 
 func roomPositionSelected(row, col, roomType):
-	var game = get_node("/root/Game")
+	var game = get_node(Constants.gamePath)
 	game.addRoom(roomType, row, col)
 	_reset()
 
@@ -42,5 +42,5 @@ func _reset():
 		child.queue_free()
 	visible = false
 	$RoomSelectControl.visible = true
-	var HUDsManager = get_node("/root/Game/HUDsManager")
+	var HUDsManager = get_node(Constants.hudsManagerPath)
 	HUDsManager.roomSelectHide()

@@ -14,14 +14,14 @@ func connectRoom(gridRow: int, gridCol: int):
 	connectRoomToSides(gridRow, gridCol, room)
 
 func connectRoomToSides(gridRow: int, gridCol: int, room: ColonyRoom):
-	if room.roomType == Constants.RoomType.ELEVATOR:
+	if room is ElevatorRoom:
 		# top
 		var topRoom = Grid.getRoomAtGridPos(gridRow -1, gridCol)
-		if (topRoom != null && topRoom.roomType == Constants.RoomType.ELEVATOR):
+		if (topRoom != null && topRoom is ElevatorRoom):
 			astar.connect_points(room.aStarPositions[0].aStarId, topRoom.aStarPositions[0].aStarId)
 		# bottom
 		var bottomRow = Grid.getRoomAtGridPos(gridRow + 1, gridCol)
-		if (bottomRow != null && bottomRow.roomType == Constants.RoomType.ELEVATOR):
+		if (bottomRow != null && bottomRow is ElevatorRoom):
 			astar.connect_points(room.aStarPositions[0].aStarId, bottomRow.aStarPositions[0].aStarId)
 	# left
 	var leftRoom = Grid.getRoomAtGridPos(gridRow, gridCol - 1)

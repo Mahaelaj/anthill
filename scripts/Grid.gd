@@ -44,7 +44,6 @@ func getCellSnapPos(pos: Vector2) -> Vector2Obj:
 
 func setCell(room, row: int, col: int):
 	for i in range(room.horizontalTileSize):
-
 		grid[row][col + i] = room
 		
 	room.set_position(Vector2(col * cell_height_px, row * cell_height_px))
@@ -56,7 +55,7 @@ func getRoomBuildOptions(room_col_size: int, is_elevator: bool) -> Array:
 			if grid[r][c] != null:
 				_addLeftGridCellBuildOption(r, c, room_col_size, gridCellBuildOptions)
 				_addRightGridCellBuildOption(r, c, room_col_size, gridCellBuildOptions)
-				if is_elevator && grid[r][c].roomType == Constants.RoomType.ELEVATOR:
+				if is_elevator && grid[r][c] is ElevatorRoom:
 					_addElevatorOptions(r, c, gridCellBuildOptions)
 				
 	return gridCellBuildOptions

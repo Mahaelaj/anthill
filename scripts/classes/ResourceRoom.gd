@@ -8,7 +8,7 @@ var numAntsWorking = 0
 
 class_name ResourceRoom
 	
-func resourceRoomInit(_horizontalTileSize: int, _roomType, _loiterPositions, _workPositions, _resourceType):
+func resourceRoomInit(_horizontalTileSize: int, _loiterPositions, _workPositions, _resourceType):
 	workPositions = _workPositions
 	assignedAnts.resize(workPositions.size())
 	resourceType = _resourceType
@@ -17,7 +17,7 @@ func resourceRoomInit(_horizontalTileSize: int, _roomType, _loiterPositions, _wo
 		var astarPos = addAstarPosition(AStarPosition.StandingType.WORK, Vector2(i, 0))
 		workAstarPositions.append(astarPos)
 		
-	colonyRoominit(_horizontalTileSize, _roomType, _loiterPositions)
+	colonyRoominit(_horizontalTileSize, _loiterPositions)
 
 func assignAnt(ant: Ant, index: int):
 	if assignedAnts[index] != null:
@@ -39,6 +39,5 @@ func _on_Button_button_up():
 	onRoomClicked(self)
 
 func _process(delta):
-	print (resourceType, " ",  numAntsWorking)
 	get_node(Constants.gamePath).updateResource(resourceType, delta * numAntsWorking)
 

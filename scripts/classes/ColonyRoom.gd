@@ -7,13 +7,12 @@ var aStarPositions = []
 
 class_name ColonyRoom
 
-func colonyRoominit(_horizontalTileSize: int, _roomType, _loiterPositions):
+func colonyRoominit(_horizontalTileSize: int, _loiterPositions):
 	horizontalTileSize = _horizontalTileSize
-	roomType = _roomType
 	loiterPositions = _loiterPositions
 	
 	for i in loiterPositions:
-		var astarPos =addAstarPosition(AStarPosition.StandingType.LOITER, Vector2(i, 0))
+		var astarPos = addAstarPosition(AStarPosition.StandingType.LOITER, Vector2(i, 0))
 		AntManager.emptyLoiteringPositions.append(astarPos)
 
 func onRoomClicked(room: ColonyRoom):
