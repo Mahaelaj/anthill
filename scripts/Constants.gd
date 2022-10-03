@@ -1,6 +1,6 @@
 extends Node
 
-enum ResourceType {FOOD, ENERGY}
+enum ResourceType {FOOD, ENERGY, A, B, C, D, E, F}
 
 var antSelectPath = "/root/Game/HUDsManager/RoomAdmin/AntSelect"
 var roomAdminPath = "/root/Game/HUDsManager/RoomAdmin"

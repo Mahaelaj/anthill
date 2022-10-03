@@ -3,18 +3,9 @@ extends Control
 var OneCellBuildOption = preload("res://scenes/1CellBuildOption.tscn")
 var twoCellBuildOption = preload("res://scenes/2CellBuildOption.tscn")
 
-func _on_ElevatorRoomSelectButton_button_up():
-	roomSelected(ElevatorRoom, true)
-
-func _on_FoodRoomSelectButton_button_up():
-	roomSelected(FoodRoom, false)
-	
-func _on_EnergyRoomSelectButton_button_up():
-	roomSelected(EnergyRoom, false)
-	
-func roomSelected(roomType, isElevator): 
-	$RoomSelectControl.visible = false
-	var buildOptionPositions = Grid.getRoomBuildOptions(roomType.getHorizontalTileSize(), isElevator)
+func roomSelected(roomType): 
+	$ScrollContainer.visible = false
+	var buildOptionPositions = Grid.getRoomBuildOptions(roomType.getHorizontalTileSize(), roomType == ElevatorRoom)
 	var buildOption
 	match roomType.getHorizontalTileSize():
 			1: buildOption = OneCellBuildOption
@@ -41,6 +32,33 @@ func _reset():
 	for child in $RoomSelectBuildControl.get_children():
 		child.queue_free()
 	visible = false
-	$RoomSelectControl.visible = true
+	$ScrollContainer.visible = true
 	var HUDsManager = get_node(Constants.hudsManagerPath)
 	HUDsManager.roomSelectHide()
+
+func _on_ElevatorRoomSelectButton_button_up():
+	roomSelected(ElevatorRoom)
+
+func _on_FoodRoomSelectButton_button_up():
+	roomSelected(FoodRoom)
+	
+func _on_EnergyRoomSelectButton_button_up():
+	roomSelected(EnergyRoom)
+	
+func _on_ARoomSelectButton_button_up():
+	roomSelected(ARoom)
+
+func _on_BRoomSelectButton_button_up():
+	roomSelected(BRoom)
+
+func _on_CRoomSelectButton_button_up():
+	roomSelected(CRoom)
+
+func _on_DRoomSelectButton_button_up():
+	roomSelected(DRoom)
+
+func _on_ERoomSelectButton_button_up():
+	roomSelected(ERoom)
+
+func _on_FRoomSelectButton_button_up():
+	roomSelected(FRoom)

@@ -81,82 +81,6 @@ script = ExtResource( 1 )
 visible = false
 script = ExtResource( 9 )
 
-[node name="RoomSelectControl" type="Control" parent="HUDsManager/RoomBuildControl"]
-margin_left = 96.0
-margin_top = 360.0
-margin_right = 1536.0
-margin_bottom = 512.0
-
-[node name="FoodRoomSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/RoomSelectControl"]
-anchor_left = 0.183
-anchor_top = 0.053
-anchor_right = 0.356
-anchor_bottom = 0.947
-margin_left = -15.52
-margin_top = 7.944
-margin_right = -0.640015
-margin_bottom = 20.0561
-
-[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/RoomSelectControl/FoodRoomSelectButton"]
-position = Vector2( 136, 72 )
-scale = Vector2( 4, 2.375 )
-texture = ExtResource( 5 )
-
-[node name="Label" type="Label" parent="HUDsManager/RoomBuildControl/RoomSelectControl/FoodRoomSelectButton"]
-margin_left = 16.0
-margin_top = 8.0
-margin_right = 288.0
-margin_bottom = 128.0
-text = "Food
-
-"
-
-[node name="ElevatorRoomSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/RoomSelectControl"]
-anchor_left = -0.033
-anchor_top = 0.053
-anchor_right = 0.15
-anchor_bottom = 0.947
-margin_left = -8.48
-margin_top = 7.944
-margin_right = -1.52588e-05
-margin_bottom = 12.056
-
-[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/RoomSelectControl/ElevatorRoomSelectButton"]
-position = Vector2( 136, 72 )
-scale = Vector2( 4, 2.375 )
-texture = ExtResource( 5 )
-
-[node name="Label" type="Label" parent="HUDsManager/RoomBuildControl/RoomSelectControl/ElevatorRoomSelectButton"]
-margin_left = 16.0
-margin_top = 8.0
-margin_right = 288.0
-margin_bottom = 128.0
-text = "Elevator
-"
-
-[node name="EnergyRoomSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/RoomSelectControl"]
-anchor_left = -0.033
-anchor_top = 0.053
-anchor_right = 0.15
-anchor_bottom = 0.947
-margin_left = 598.52
-margin_top = 7.944
-margin_right = 607.0
-margin_bottom = 12.056
-
-[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/RoomSelectControl/EnergyRoomSelectButton"]
-position = Vector2( 136, 72 )
-scale = Vector2( 4, 2.375 )
-texture = ExtResource( 5 )
-
-[node name="Label" type="Label" parent="HUDsManager/RoomBuildControl/RoomSelectControl/EnergyRoomSelectButton"]
-margin_left = 16.0
-margin_top = 8.0
-margin_right = 288.0
-margin_bottom = 128.0
-text = "Energy
-"
-
 [node name="RoomSelectBuildControl" type="Control" parent="HUDsManager/RoomBuildControl"]
 
 [node name="CloseButton" type="Button" parent="HUDsManager/RoomBuildControl"]
@@ -169,6 +93,201 @@ margin_bottom = 72.0
 position = Vector2( 32, 28 )
 scale = Vector2( 0.0625, 0.0703125 )
 texture = ExtResource( 6 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HUDsManager/RoomBuildControl"]
+margin_left = 80.0
+margin_top = 384.0
+margin_right = 912.0
+margin_bottom = 536.0
+scroll_vertical_enabled = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUDsManager/RoomBuildControl/ScrollContainer"]
+margin_right = 832.0
+margin_bottom = 152.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer"]
+margin_right = 832.0
+margin_bottom = 152.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 20
+
+[node name="FoodRoomSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer"]
+margin_right = 260.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 260, 150 )
+
+[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodRoomSelectButton"]
+position = Vector2( 136, 72 )
+scale = Vector2( 4, 2.375 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodRoomSelectButton"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 248.0
+margin_bottom = 144.0
+text = "Food
+
+"
+
+[node name="ElevatorRoomSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer"]
+margin_left = 264.0
+margin_right = 514.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 250, 150 )
+
+[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/ElevatorRoomSelectButton"]
+position = Vector2( 136, 72 )
+scale = Vector2( 4, 2.375 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/ElevatorRoomSelectButton"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 264.0
+margin_bottom = 128.0
+text = "Elevator
+"
+
+[node name="EnergyRoomSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer"]
+margin_left = 518.0
+margin_right = 778.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 260, 150 )
+
+[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/EnergyRoomSelectButton"]
+position = Vector2( 136, 72 )
+scale = Vector2( 4, 2.375 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/EnergyRoomSelectButton"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 288.0
+margin_bottom = 128.0
+text = "Energy
+"
+
+[node name="ARoomSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer"]
+margin_left = 518.0
+margin_right = 778.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 260, 150 )
+
+[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/ARoomSelectButton"]
+position = Vector2( 136, 72 )
+scale = Vector2( 4, 2.375 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/ARoomSelectButton"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 288.0
+margin_bottom = 128.0
+text = "A
+"
+
+[node name="BRoomSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer"]
+margin_left = 518.0
+margin_right = 778.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 260, 150 )
+
+[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/BRoomSelectButton"]
+position = Vector2( 136, 72 )
+scale = Vector2( 4, 2.375 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/BRoomSelectButton"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 288.0
+margin_bottom = 128.0
+text = "B
+"
+
+[node name="CRoomSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer"]
+margin_left = 518.0
+margin_right = 778.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 260, 150 )
+
+[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/CRoomSelectButton"]
+position = Vector2( 136, 72 )
+scale = Vector2( 4, 2.375 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/CRoomSelectButton"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 288.0
+margin_bottom = 128.0
+text = "C
+
+"
+
+[node name="DRoomSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer"]
+margin_left = 518.0
+margin_right = 778.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 260, 150 )
+
+[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/DRoomSelectButton"]
+position = Vector2( 136, 72 )
+scale = Vector2( 4, 2.375 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/DRoomSelectButton"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 288.0
+margin_bottom = 128.0
+text = "D
+
+"
+
+[node name="ERoomSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer"]
+margin_left = 518.0
+margin_right = 778.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 260, 150 )
+
+[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/ERoomSelectButton"]
+position = Vector2( 136, 72 )
+scale = Vector2( 4, 2.375 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/ERoomSelectButton"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 288.0
+margin_bottom = 128.0
+text = "E
+
+"
+
+[node name="FRoomSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer"]
+margin_left = 518.0
+margin_right = 778.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 260, 150 )
+
+[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FRoomSelectButton"]
+position = Vector2( 136, 72 )
+scale = Vector2( 4, 2.375 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FRoomSelectButton"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 288.0
+margin_bottom = 128.0
+text = "F
+
+"
 
 [node name="RoomAdmin" type="Control" parent="HUDsManager"]
 visible = false
@@ -236,10 +355,16 @@ size_flags_vertical = 3
 
 [connection signal="timeout" from="Ants/Ant_TEST/LoiterTimer" to="Ants/Ant_TEST" method="_on_LoiterTimer_timeout"]
 [connection signal="button_up" from="HUDsManager/MainHUD/BuildButton" to="HUDsManager" method="_on_BuildButton_button_up"]
-[connection signal="button_up" from="HUDsManager/RoomBuildControl/RoomSelectControl/FoodRoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_FoodRoomSelectButton_button_up"]
-[connection signal="button_up" from="HUDsManager/RoomBuildControl/RoomSelectControl/ElevatorRoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_ElevatorRoomSelectButton_button_up"]
-[connection signal="button_up" from="HUDsManager/RoomBuildControl/RoomSelectControl/EnergyRoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_EnergyRoomSelectButton_button_up"]
 [connection signal="button_up" from="HUDsManager/RoomBuildControl/CloseButton" to="HUDsManager/RoomBuildControl" method="_on_CloseButton_button_up"]
+[connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodRoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_FoodRoomSelectButton_button_up"]
+[connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/ElevatorRoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_ElevatorRoomSelectButton_button_up"]
+[connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/EnergyRoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_EnergyRoomSelectButton_button_up"]
+[connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/ARoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_ARoomSelectButton_button_up"]
+[connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/BRoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_BRoomSelectButton_button_up"]
+[connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/CRoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_CRoomSelectButton_button_up"]
+[connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/DRoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_DRoomSelectButton_button_up"]
+[connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/ERoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_ERoomSelectButton_button_up"]
+[connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FRoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_FRoomSelectButton_button_up"]
 [connection signal="button_up" from="HUDsManager/RoomAdmin/Close Button" to="HUDsManager" method="closeRoomAdmin"]
 [connection signal="button_up" from="HUDsManager/RoomAdmin/Fill Position 1" to="HUDsManager/RoomAdmin" method="_on_Fill_Position_1_button_up"]
 [connection signal="button_up" from="HUDsManager/RoomAdmin/Fill Position 2" to="HUDsManager/RoomAdmin" method="_on_Fill_Position_2_button_up"]

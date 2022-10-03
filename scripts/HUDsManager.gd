@@ -19,6 +19,8 @@ func roomSelectHide():
 	pass # Replace with function body.
 
 func openRoomAdmin(room: ColonyRoom):
+	if (controlFlow != controlFlowEnum.MAIN):
+		return
 	controlFlow = controlFlowEnum.ROOM_ADMIN
 	$MainHUD.visible = false
 	$RoomAdmin.visible = true
