@@ -96,7 +96,7 @@ scroll_vertical_enabled = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUDsManager/RoomBuildControl/ScrollContainer"]
 margin_right = 2362.0
-margin_bottom = 162.0
+margin_bottom = 152.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -282,6 +282,26 @@ text = "F
 
 "
 
+[node name="StorageSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer"]
+margin_left = 2102.0
+margin_right = 2362.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 260, 150 )
+
+[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/StorageSelectButton"]
+position = Vector2( 136, 72 )
+scale = Vector2( 4, 2.375 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/StorageSelectButton"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 288.0
+margin_bottom = 128.0
+text = "Storage
+
+"
+
 [node name="RoomAdmin" type="Control" parent="HUDsManager"]
 visible = false
 margin_right = 40.0
@@ -430,6 +450,7 @@ percent_visible = false
 [connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/DRoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_DRoomSelectButton_button_up"]
 [connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/ERoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_ERoomSelectButton_button_up"]
 [connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FRoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_FRoomSelectButton_button_up"]
+[connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/StorageSelectButton" to="HUDsManager/RoomBuildControl" method="_on_StorageSelectButton_button_up"]
 [connection signal="button_up" from="HUDsManager/RoomAdmin/Close Button" to="HUDsManager" method="closeRoomAdmin"]
 [connection signal="button_up" from="HUDsManager/RoomAdmin/Fill Position 1" to="HUDsManager/RoomAdmin" method="_on_Fill_Position_1_button_up"]
 [connection signal="button_up" from="HUDsManager/RoomAdmin/Fill Position 2" to="HUDsManager/RoomAdmin" method="_on_Fill_Position_2_button_up"]

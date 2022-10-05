@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/classes/colonyRooms/StorageRom.gd" type="Script" id=1]
+
+[node name="StorageRoom" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 128.0
+margin_bottom = 64.0
+color = Color( 0.203922, 0.027451, 0.0901961, 1 )

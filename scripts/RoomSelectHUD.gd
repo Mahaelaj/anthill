@@ -62,3 +62,7 @@ func _on_ERoomSelectButton_button_up():
 
 func _on_FRoomSelectButton_button_up():
 	roomSelected(FRoom)
+
+func _on_StorageSelectButton_button_up():
+	roomSelected(StorageRoom)
+	pass # Replace with function body.

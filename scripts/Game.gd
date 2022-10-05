@@ -9,6 +9,7 @@ var CR = preload("res://scenes/rooms/CRoom.tscn")
 var DR = preload("res://scenes/rooms/DRoom.tscn")
 var ER = preload("res://scenes/rooms/ERoom.tscn")
 var FR = preload("res://scenes/rooms/FRoom.tscn")
+var StorageR = preload("res://scenes/rooms/StorageRoom.tscn")
 
 var food: float = 0
 var maxFood = 0
@@ -66,6 +67,16 @@ func addRoom(roomType, row, col):
 			maxE += 300
 		FRoom:
 			room = FR.instance()
+			maxF += 300
+		StorageRoom:
+			room = StorageR.instance()
+			maxFood += 300
+			maxEnergy += 300
+			maxA += 300
+			maxB += 300
+			maxC += 300
+			maxD += 300
+			maxE += 300
 			maxF += 300
 			
 	room.init()
