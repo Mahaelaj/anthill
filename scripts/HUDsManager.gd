@@ -1,6 +1,6 @@
 extends Node
 
-enum controlFlowEnum {MAIN, ROOM_BUILD, ROOM_ADMIN}
+enum controlFlowEnum {MAIN, ROOM_BUILD, ROOM_ADMIN, RESOURCE_OVERVIEW}
 var controlFlow = controlFlowEnum.MAIN
 
 func _on_BuildButton_button_up():
@@ -16,7 +16,8 @@ func _on_BuildButton_button_up():
 func roomSelectHide():
 	controlFlow = controlFlowEnum.MAIN
 	$MainHUD.visible = true
-	pass # Replace with function body.
+	pass # Replace with function body 
+	
 
 func openRoomAdmin(room: ColonyRoom):
 	if (controlFlow != controlFlowEnum.MAIN):
@@ -34,3 +35,15 @@ func closeRoomAdmin():
 	$RoomAdmin/AntSelect.visible = false
 	for i in $RoomAdmin/AntSelect/VBoxContainer/GridContainer.get_children():
 		i.queue_free()
+
+func _on_ResourceOverview_button_up():
+	if (controlFlow != controlFlowEnum.MAIN):
+		return
+	controlFlow = controlFlowEnum.RESOURCE_OVERVIEW
+	$MainHUD.visible = false
+	$ResourceOverview.visible = true
+
+func closeResourceOverview():
+	controlFlow = controlFlowEnum.MAIN
+	$MainHUD.visible = true
+	$ResourceOverview.visible = false

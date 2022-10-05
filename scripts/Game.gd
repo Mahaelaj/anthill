@@ -88,10 +88,46 @@ func updateResource(resourceType, count: float):
 			var foodPercentage = 0
 			if maxFood != 0:
 				foodPercentage = food/ maxFood * 100
-			$HUDsManager/MainHUD/FoodBar.updateValue(foodPercentage)
+			$HUDsManager/FoodEnergyBars/FoodBar.value = foodPercentage
 		Constants.ResourceType.ENERGY:
 			energy = clamp(energy + count, 0, maxEnergy)
 			var energyPercentage = 0
 			if maxEnergy != 0:
 				energyPercentage = energy/ maxEnergy * 100
-			$HUDsManager/MainHUD/EnergyBar.updateValue(energyPercentage)
+			$HUDsManager/FoodEnergyBars/EnergyBar.value = energyPercentage
+		Constants.ResourceType.A:
+			a = clamp(a + count, 0, maxA)
+			var aPercentage = 0
+			if maxA != 0:
+				aPercentage = a/ maxA * 100
+			$HUDsManager/ResourceOverview/ABar.value = aPercentage
+		Constants.ResourceType.B:
+			b = clamp(b + count, 0, maxB)
+			var bPercentage = 0
+			if maxB != 0:
+				bPercentage = b/ maxB * 100
+			$HUDsManager/ResourceOverview/BBar.value = bPercentage
+		Constants.ResourceType.C:
+			c = clamp(c + count, 0, maxC)
+			var cPercentage = 0
+			if maxC != 0:
+				cPercentage = c/ maxC * 100
+			$HUDsManager/ResourceOverview/CBar.value = cPercentage
+		Constants.ResourceType.D:
+			d = clamp(d + count, 0, maxD)
+			var dPercentage = 0
+			if maxD != 0:
+				dPercentage = d/ maxD * 100
+			$HUDsManager/ResourceOverview/DBar.value = dPercentage
+		Constants.ResourceType.E:
+			e = clamp(e + count, 0, maxE)
+			var ePercentage = 0
+			if maxE != 0:
+				ePercentage = e/ maxE * 100
+			$HUDsManager/ResourceOverview/EBar.value = ePercentage
+		Constants.ResourceType.F:
+			f = clamp(f + count, 0, maxF)
+			var fPercentage = 0
+			if maxF != 0:
+				fPercentage = f/ maxF * 100
+			$HUDsManager/ResourceOverview/FBar.value = fPercentage
