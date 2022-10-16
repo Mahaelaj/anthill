@@ -2,7 +2,7 @@ extends WorkingRoom
 
 class_name MarketRoom
 
-var maxFood = 50
+var maxFoodA = 50
 var maxEnergy = 50
 var maxA = 50
 var maxB = 50
@@ -11,7 +11,7 @@ var maxD = 50
 var maxE = 50
 var maxF = 50
 
-var food = 0
+var foodA = 0
 var energy = 0
 var a = 0
 var b = 0
@@ -29,8 +29,8 @@ static func getHorizontalTileSize():
 	
 func updateResource(resourceType, count):
 	match resourceType:
-		Constants.ResourceType.FOOD:
-			food =  clamp(food + count, 0, maxFood)
+		Constants.ResourceType.FOOD_A:
+			foodA =  clamp(foodA + count, 0, maxFoodA)
 		Constants.ResourceType.ENERGY:
 			energy =  clamp(energy + count, 0, maxEnergy)
 		Constants.ResourceType.A:
@@ -48,8 +48,8 @@ func updateResource(resourceType, count):
 
 func isStorageFullForResource(resourceType) -> bool:
 	match resourceType:
-		Constants.ResourceType.FOOD:
-			return maxFood - food == 0
+		Constants.ResourceType.FOOD_A:
+			return maxFoodA - foodA == 0
 		Constants.ResourceType.ENERGY:
 			return maxEnergy - energy == 0
 		Constants.ResourceType.A:
@@ -68,8 +68,8 @@ func isStorageFullForResource(resourceType) -> bool:
 
 func _on_SellTimer_timeout():
 	var funds = 0
-	funds += food * Constants.resourcePrices[Constants.ResourceType.FOOD]
-	food = 0
+	funds += foodA * Constants.resourcePrices[Constants.ResourceType.FOOD_A]
+	foodA = 0
 	funds += energy * Constants.resourcePrices[Constants.ResourceType.ENERGY]
 	energy = 0
 	funds += a * Constants.resourcePrices[Constants.ResourceType.A]

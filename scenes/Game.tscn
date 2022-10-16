@@ -107,24 +107,113 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 20
 
-[node name="FoodRoomSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer"]
+[node name="FoodARoomSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer"]
 margin_right = 260.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 260, 150 )
 
-[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodRoomSelectButton"]
+[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodARoomSelectButton"]
 position = Vector2( 136, 72 )
 scale = Vector2( 4, 2.375 )
 texture = ExtResource( 5 )
 
-[node name="Label" type="Label" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodRoomSelectButton"]
+[node name="Label" type="Label" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodARoomSelectButton"]
 margin_left = 16.0
 margin_top = 8.0
 margin_right = 248.0
 margin_bottom = 144.0
-text = "Food
+text = "Food A
 
 "
+
+[node name="FoodBRoomSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer"]
+margin_right = 260.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 260, 150 )
+
+[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodBRoomSelectButton"]
+position = Vector2( 136, 72 )
+scale = Vector2( 4, 2.375 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodBRoomSelectButton"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 248.0
+margin_bottom = 144.0
+text = "Food B
+
+"
+
+[node name="FoodCRoomSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer"]
+margin_right = 260.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 260, 150 )
+
+[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodCRoomSelectButton"]
+position = Vector2( 136, 72 )
+scale = Vector2( 4, 2.375 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodCRoomSelectButton"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 248.0
+margin_bottom = 144.0
+text = "Food C
+
+"
+
+[node name="FoodDRoomSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer"]
+margin_right = 260.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 260, 150 )
+
+[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodDRoomSelectButton"]
+position = Vector2( 136, 72 )
+scale = Vector2( 4, 2.375 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodDRoomSelectButton"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 248.0
+margin_bottom = 144.0
+text = "Food D"
+
+[node name="FoodERoomSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer"]
+margin_right = 260.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 260, 150 )
+
+[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodERoomSelectButton"]
+position = Vector2( 136, 72 )
+scale = Vector2( 4, 2.375 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodERoomSelectButton"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 248.0
+margin_bottom = 144.0
+text = "Food E"
+
+[node name="FoodFRoomSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer"]
+margin_right = 260.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 260, 150 )
+
+[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodFRoomSelectButton"]
+position = Vector2( 136, 72 )
+scale = Vector2( 4, 2.375 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodFRoomSelectButton"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 248.0
+margin_bottom = 144.0
+text = "Food F"
 
 [node name="ElevatorRoomSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer"]
 margin_left = 264.0
@@ -439,6 +528,48 @@ position = Vector2( 32, 28 )
 scale = Vector2( 0.0625, 0.0703125 )
 texture = ExtResource( 6 )
 
+[node name="FoodABar" type="ProgressBar" parent="HUDsManager/ResourceOverview"]
+margin_left = 297.0
+margin_top = 1.0
+margin_right = 425.0
+margin_bottom = 15.0
+percent_visible = false
+
+[node name="FoodBBar" type="ProgressBar" parent="HUDsManager/ResourceOverview"]
+margin_left = 297.0
+margin_top = 35.0
+margin_right = 425.0
+margin_bottom = 49.0
+percent_visible = false
+
+[node name="FoodCBar" type="ProgressBar" parent="HUDsManager/ResourceOverview"]
+margin_left = 297.0
+margin_top = 75.0
+margin_right = 425.0
+margin_bottom = 89.0
+percent_visible = false
+
+[node name="FoodDBar" type="ProgressBar" parent="HUDsManager/ResourceOverview"]
+margin_left = 297.0
+margin_top = 123.0
+margin_right = 425.0
+margin_bottom = 137.0
+percent_visible = false
+
+[node name="FoodEBar" type="ProgressBar" parent="HUDsManager/ResourceOverview"]
+margin_left = 297.0
+margin_top = 171.0
+margin_right = 425.0
+margin_bottom = 185.0
+percent_visible = false
+
+[node name="FoodFBar" type="ProgressBar" parent="HUDsManager/ResourceOverview"]
+margin_left = 297.0
+margin_top = 219.0
+margin_right = 425.0
+margin_bottom = 233.0
+percent_visible = false
+
 [node name="FoodEnergyBars" type="Control" parent="HUDsManager"]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -468,7 +599,12 @@ text = "$ 0"
 [connection signal="button_up" from="HUDsManager/MainHUD/ResourceOverview" to="HUDsManager" method="_on_ResourceOverview_button_up"]
 [connection signal="button_up" from="HUDsManager/MainHUD/BuildButton" to="HUDsManager" method="_on_BuildButton_button_up"]
 [connection signal="button_up" from="HUDsManager/RoomBuildControl/CloseButton" to="HUDsManager/RoomBuildControl" method="_on_CloseButton_button_up"]
-[connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodRoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_FoodRoomSelectButton_button_up"]
+[connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodARoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_FoodARoomSelectButton_button_up"]
+[connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodBRoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_FoodBRoomSelectButton_button_up"]
+[connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodCRoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_FoodCRoomSelectButton_button_up"]
+[connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodDRoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_FoodDRoomSelectButton_button_up"]
+[connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodERoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_FoodERoomSelectButton_button_up"]
+[connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FoodFRoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_FoodFRoomSelectButton_button_up"]
 [connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/ElevatorRoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_ElevatorRoomSelectButton_button_up"]
 [connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/EnergyRoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_EnergyRoomSelectButton_button_up"]
 [connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/ARoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_ARoomSelectButton_button_up"]

@@ -60,5 +60,5 @@ func _on_Button_button_up():
 	
 func startTimer():
 	var waitTime = maxTimerTime - ((float(MAX_REDUCED_TIME_PERC * numAntsWorking / workPositions.size()) / 100) * maxTimerTime)
-	timer.set_wait_time(20)
+	timer.set_wait_time(waitTime)
 	timer.start()

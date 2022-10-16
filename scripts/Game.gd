@@ -1,7 +1,12 @@
 extends Node2D
 
 var ElevatorR = preload("res://scenes/rooms/ElevatorRoom.tscn")
-var FoodR = preload("res://scenes/rooms/FoodRoom.tscn")
+var FoodAR = preload("res://scenes/rooms/FoodARoom.tscn")
+var FoodBR = preload("res://scenes/rooms/FoodBRoom.tscn")
+var FoodCR = preload("res://scenes/rooms/FoodCRoom.tscn")
+var FoodDR = preload("res://scenes/rooms/FoodDRoom.tscn")
+var FoodER = preload("res://scenes/rooms/FoodERoom.tscn")
+var FoodFR = preload("res://scenes/rooms/FoodFRoom.tscn")
 var EnergyR = preload("res://scenes/rooms/EnergyRoom.tscn")
 var AR = preload("res://scenes/rooms/ARoom.tscn")
 var BR = preload("res://scenes/rooms/BRoom.tscn")
@@ -14,8 +19,23 @@ var MarketR = preload("res://scenes/rooms/MarketRoom.tscn")
 
 var funds = 0
 
-var food: int = 0
-var maxFood = 0
+var foodA: int = 0
+var maxFoodA = 0
+
+var foodB: int = 0
+var maxFoodB = 0
+
+var foodC: int = 0
+var maxFoodC = 0
+
+var foodD: int = 0
+var maxFoodD = 0
+
+var foodE: int = 0
+var maxFoodE = 0
+
+var foodF: int = 0
+var maxFoodF = 0
 
 var energy: int = 0
 var maxEnergy = 0
@@ -47,9 +67,29 @@ func addRoom(roomType, row, col):
 	match roomType:
 		ElevatorRoom:
 			room = ElevatorR.instance()
-		FoodRoom:
-			room = FoodR.instance()
-			maxFood += 300
+		FoodARoom:
+			room = FoodAR.instance()
+			maxFoodA += 300
+			updateFood()
+		FoodBRoom:
+			room = FoodBR.instance()
+			maxFoodB += 300
+			updateFood()
+		FoodCRoom:
+			room = FoodCR.instance()
+			maxFoodC += 300
+			updateFood()
+		FoodDRoom:
+			room = FoodDR.instance()
+			maxFoodD += 300
+			updateFood()
+		FoodERoom:
+			room = FoodER.instance()
+			maxFoodE += 300
+			updateFood()
+		FoodFRoom:
+			room = FoodFR.instance()
+			maxFoodF += 300
 		EnergyRoom:
 			room = EnergyR.instance()
 			maxEnergy += 300
@@ -73,7 +113,12 @@ func addRoom(roomType, row, col):
 			maxF += 300
 		StorageRoom:
 			room = StorageR.instance()
-			maxFood += 300
+			maxFoodA += 300
+			maxFoodB += 300
+			maxFoodC += 300
+			maxFoodD += 300
+			maxFoodE += 300
+			maxFoodF += 300
 			maxEnergy += 300
 			maxA += 300
 			maxB += 300
@@ -99,21 +144,72 @@ func assignAntToRoom(ant: Ant, room: ColonyRoom, index: int):
 
 func updateResource(resourceType, count):
 	match resourceType:
-		Constants.ResourceType.FOOD:
-			var remainder = food + count - maxFood
-			food = clamp(food + count, 0, maxFood)
-			var foodPercentage = 0
-			if maxFood != 0:
-				foodPercentage = food/ maxFood * 100
-			$HUDsManager/FoodEnergyBars/FoodBar.value = foodPercentage
+		Constants.ResourceType.FOOD_A:
+			var remainder = foodA + count - maxFoodA
+			foodA = clamp(foodA + count, 0, maxFoodA)
+			updateFood()
+			var foodAPercentage = 0
+			if maxFoodA != 0:
+				foodAPercentage = float(foodA)/ maxFoodA * 100
+			$HUDsManager/ResourceOverview/FoodABar.value = foodAPercentage
 			if remainder > 0:
-				addResourcesToMarket(Constants.ResourceType.FOOD, remainder)
+				addResourcesToMarket(Constants.ResourceType.FOOD_A, remainder)
+		Constants.ResourceType.FOOD_B:
+			var remainder = foodB + count - maxFoodB
+			foodB = clamp(foodB + count, 0, maxFoodB)
+			updateFood()
+			var foodBPercentage = 0
+			if maxFoodB != 0:
+				foodBPercentage = float(foodB)/ maxFoodB * 100
+			$HUDsManager/ResourceOverview/FoodBBar.value = foodBPercentage
+			if remainder > 0:
+				addResourcesToMarket(Constants.ResourceType.FOOD_B, remainder)
+		Constants.ResourceType.FOOD_C:
+			var remainder = foodC + count - maxFoodC
+			foodC = clamp(foodC + count, 0, maxFoodC)
+			updateFood()
+			var foodCPercentage = 0
+			if maxFoodC != 0:
+				foodCPercentage = float(foodC)/ maxFoodC * 100
+			$HUDsManager/ResourceOverview/FoodCBar.value = foodCPercentage
+			if remainder > 0:
+				addResourcesToMarket(Constants.ResourceType.FOOD_C, remainder)
+		Constants.ResourceType.FOOD_D:
+			var remainder = foodD + count - maxFoodD
+			foodD = clamp(foodD + count, 0, maxFoodD)
+			updateFood()
+			var foodDPercentage = 0
+			if maxFoodD != 0:
+				foodDPercentage = float(foodD)/ maxFoodD * 100
+			$HUDsManager/ResourceOverview/FoodDBar.value = foodDPercentage
+			if remainder > 0:
+				addResourcesToMarket(Constants.ResourceType.FOOD_D, remainder)
+		Constants.ResourceType.FOOD_E:
+			var remainder = foodE + count - maxFoodE
+			foodE = clamp(foodE + count, 0, maxFoodE)
+			updateFood()
+			var foodEPercentage = 0
+			if maxFoodE != 0:
+				foodEPercentage = float(foodE)/ maxFoodE * 100
+			$HUDsManager/ResourceOverview/FoodEBar.value = foodEPercentage
+			if remainder > 0:
+				addResourcesToMarket(Constants.ResourceType.FOOD_E, remainder)
+		Constants.ResourceType.FOOD_F:
+			var remainder = foodF + count - maxFoodF
+			foodF = clamp(foodF + count, 0, maxFoodF)
+			updateFood()
+			var foodFPercentage = 0
+			if maxFoodF != 0:
+				foodFPercentage = float(foodF)/ maxFoodF * 100
+			$HUDsManager/ResourceOverview/FoodFBar.value = foodFPercentage
+			if remainder > 0:
+				addResourcesToMarket(Constants.ResourceType.FOOD_F, remainder)
 		Constants.ResourceType.ENERGY:
 			var remainder = energy + count - maxEnergy
 			energy = clamp(energy + count, 0, maxEnergy)
 			var energyPercentage = 0
 			if maxEnergy != 0:
-				energyPercentage = energy/ maxEnergy * 100
+				energyPercentage = float(energy)/ maxEnergy * 100
 			$HUDsManager/FoodEnergyBars/EnergyBar.value = energyPercentage
 			if remainder > 0:
 				addResourcesToMarket(Constants.ResourceType.ENERGY, remainder)
@@ -122,7 +218,7 @@ func updateResource(resourceType, count):
 			a = clamp(a + count, 0, maxA)
 			var aPercentage = 0
 			if maxA != 0:
-				aPercentage = a/ maxA * 100
+				aPercentage = float(a)/ maxA * 100
 			$HUDsManager/ResourceOverview/ABar.value = aPercentage
 			if remainder > 0:
 				addResourcesToMarket(Constants.ResourceType.A, remainder)
@@ -131,7 +227,7 @@ func updateResource(resourceType, count):
 			b = clamp(b + count, 0, maxB)
 			var bPercentage = 0
 			if maxB != 0:
-				bPercentage = b/ maxB * 100
+				bPercentage = float(b)/ maxB * 100
 			$HUDsManager/ResourceOverview/BBar.value = bPercentage
 			if remainder > 0:
 				addResourcesToMarket(Constants.ResourceType.B, remainder)
@@ -140,7 +236,7 @@ func updateResource(resourceType, count):
 			c = clamp(c + count, 0, maxC)
 			var cPercentage = 0
 			if maxC != 0:
-				cPercentage = c/ maxC * 100
+				cPercentage = float(c)/ maxC * 100
 			$HUDsManager/ResourceOverview/CBar.value = cPercentage
 			if remainder > 0:
 				addResourcesToMarket(Constants.ResourceType.C, remainder)
@@ -149,7 +245,7 @@ func updateResource(resourceType, count):
 			d = clamp(d + count, 0, maxD)
 			var dPercentage = 0
 			if maxD != 0:
-				dPercentage = d/ maxD * 100
+				dPercentage = float(d)/ maxD * 100
 			$HUDsManager/ResourceOverview/DBar.value = dPercentage
 			if remainder > 0:
 				addResourcesToMarket(Constants.ResourceType.D, remainder)
@@ -158,20 +254,27 @@ func updateResource(resourceType, count):
 			e = clamp(e + count, 0, maxE)
 			var ePercentage = 0
 			if maxE != 0:
-				ePercentage = e/ maxE * 100
+				ePercentage = float(e)/ maxE * 100
 			$HUDsManager/ResourceOverview/EBar.value = ePercentage
 			if remainder > 0:
-				print("adding e")
 				addResourcesToMarket(Constants.ResourceType.E, remainder)
 		Constants.ResourceType.F:
 			var remainder = f + count - maxF
 			f = clamp(f + count, 0, maxF)
 			var fPercentage = 0
 			if maxF != 0:
-				fPercentage = f/ maxF * 100
+				fPercentage = float(f)/ maxF * 100
 			$HUDsManager/ResourceOverview/FBar.value = fPercentage
 			if remainder > 0:
 				addResourcesToMarket(Constants.ResourceType.F, remainder)
+				
+func updateFood(): 
+	var food = foodA
+	var maxFood = maxFoodA
+	var foodPercentage = 0
+	if maxFoodA != 0:
+		foodPercentage = float(food)/ maxFood * 100
+	$HUDsManager/FoodEnergyBars/FoodBar.value = foodPercentage
 				
 # TODO: workers should reduce work time
 func addResourcesToMarket(resourceType, count):
@@ -188,4 +291,3 @@ func addResourcesToMarket(resourceType, count):
 func updateFunds(count):
 	funds += count
 	$HUDsManager/FoodEnergyBars/Funds.text = "$ " + str(funds)
-	

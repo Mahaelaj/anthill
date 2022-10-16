@@ -39,8 +39,23 @@ func _reset():
 func _on_ElevatorRoomSelectButton_button_up():
 	roomSelected(ElevatorRoom)
 
-func _on_FoodRoomSelectButton_button_up():
-	roomSelected(FoodRoom)
+func _on_FoodARoomSelectButton_button_up():
+	roomSelected(FoodARoom)
+
+func _on_FoodBRoomSelectButton_button_up():
+	roomSelected(FoodBRoom)
+
+func _on_FoodCRoomSelectButton_button_up():
+	roomSelected(FoodCRoom)
+
+func _on_FoodDRoomSelectButton_button_up():
+	roomSelected(FoodDRoom)
+	
+func _on_FoodERoomSelectButton_button_up():
+	roomSelected(FoodERoom)
+
+func _on_FoodFRoomSelectButton_button_up():
+	roomSelected(FoodFRoom)
 	
 func _on_EnergyRoomSelectButton_button_up():
 	roomSelected(EnergyRoom)
