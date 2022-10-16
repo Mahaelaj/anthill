@@ -69,7 +69,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/classes/colonyRooms/FoodRoom.gd"
 }, {
-"base": "ColonyRoom",
+"base": "WorkingRoom",
+"class": "MarketRoom",
+"language": "GDScript",
+"path": "res://scripts/classes/colonyRooms/MarketRoom.gd"
+}, {
+"base": "WorkingRoom",
 "class": "ResourceRoom",
 "language": "GDScript",
 "path": "res://scripts/classes/ResourceRoom.gd"
@@ -77,12 +82,17 @@ _global_script_classes=[ {
 "base": "ColonyRoom",
 "class": "StorageRoom",
 "language": "GDScript",
-"path": "res://scripts/classes/colonyRooms/StorageRom.gd"
+"path": "res://scripts/classes/colonyRooms/StorageRoom.gd"
 }, {
 "base": "Object",
 "class": "Vector2Obj",
 "language": "GDScript",
 "path": "res://scripts/classes/Vector2Obj.gd"
+}, {
+"base": "ColonyRoom",
+"class": "WorkingRoom",
+"language": "GDScript",
+"path": "res://scripts/classes/WorkingRoom.gd"
 } ]
 _global_script_class_icons={
 "ARoom": "",
@@ -97,9 +107,11 @@ _global_script_class_icons={
 "EnergyRoom": "",
 "FRoom": "",
 "FoodRoom": "",
+"MarketRoom": "",
 "ResourceRoom": "",
 "StorageRoom": "",
-"Vector2Obj": ""
+"Vector2Obj": "",
+"WorkingRoom": ""
 }
 
 [application]

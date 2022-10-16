@@ -95,7 +95,7 @@ margin_bottom = 536.0
 scroll_vertical_enabled = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUDsManager/RoomBuildControl/ScrollContainer"]
-margin_right = 2362.0
+margin_right = 2890.0
 margin_bottom = 152.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -302,6 +302,26 @@ text = "Storage
 
 "
 
+[node name="MarketSelectButton" type="Button" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer"]
+margin_left = 2102.0
+margin_right = 2362.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 260, 150 )
+
+[node name="Sprite" type="Sprite" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/MarketSelectButton"]
+position = Vector2( 136, 72 )
+scale = Vector2( 4, 2.375 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/MarketSelectButton"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 288.0
+margin_bottom = 128.0
+text = "Market
+
+"
+
 [node name="RoomAdmin" type="Control" parent="HUDsManager"]
 visible = false
 margin_right = 40.0
@@ -425,9 +445,9 @@ margin_bottom = 40.0
 
 [node name="FoodBar" type="ProgressBar" parent="HUDsManager/FoodEnergyBars"]
 margin_left = 8.0
-margin_top = 8.0
+margin_top = 24.0
 margin_right = 136.0
-margin_bottom = 22.0
+margin_bottom = 38.0
 percent_visible = false
 
 [node name="EnergyBar" type="ProgressBar" parent="HUDsManager/FoodEnergyBars"]
@@ -436,6 +456,13 @@ margin_top = 40.0
 margin_right = 136.0
 margin_bottom = 54.0
 percent_visible = false
+
+[node name="Funds" type="Label" parent="HUDsManager/FoodEnergyBars"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 48.0
+margin_bottom = 22.0
+text = "$ 0"
 
 [connection signal="timeout" from="Ants/Ant_TEST/LoiterTimer" to="Ants/Ant_TEST" method="_on_LoiterTimer_timeout"]
 [connection signal="button_up" from="HUDsManager/MainHUD/ResourceOverview" to="HUDsManager" method="_on_ResourceOverview_button_up"]
@@ -451,6 +478,7 @@ percent_visible = false
 [connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/ERoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_ERoomSelectButton_button_up"]
 [connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/FRoomSelectButton" to="HUDsManager/RoomBuildControl" method="_on_FRoomSelectButton_button_up"]
 [connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/StorageSelectButton" to="HUDsManager/RoomBuildControl" method="_on_StorageSelectButton_button_up"]
+[connection signal="button_up" from="HUDsManager/RoomBuildControl/ScrollContainer/HBoxContainer/GridContainer/MarketSelectButton" to="HUDsManager/RoomBuildControl" method="_on_MarketSelectButton_button_up"]
 [connection signal="button_up" from="HUDsManager/RoomAdmin/Close Button" to="HUDsManager" method="closeRoomAdmin"]
 [connection signal="button_up" from="HUDsManager/RoomAdmin/Fill Position 1" to="HUDsManager/RoomAdmin" method="_on_Fill_Position_1_button_up"]
 [connection signal="button_up" from="HUDsManager/RoomAdmin/Fill Position 2" to="HUDsManager/RoomAdmin" method="_on_Fill_Position_2_button_up"]

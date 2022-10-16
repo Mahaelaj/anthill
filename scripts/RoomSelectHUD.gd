@@ -66,3 +66,6 @@ func _on_FRoomSelectButton_button_up():
 func _on_StorageSelectButton_button_up():
 	roomSelected(StorageRoom)
 	pass # Replace with function body.
+
+func _on_MarketSelectButton_button_up():
+	roomSelected(MarketRoom)
