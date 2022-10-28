@@ -2,7 +2,8 @@
 
 [ext_resource path="res://scripts/classes/RoomBuild.gd" type="Script" id=1]
 
-[node name="2CellBuildOption" type="Button"]
+[node name="3CellBuildOption" type="Button"]
 margin_right = 128.0
 margin_bottom = 64.0
+rect_scale = Vector2( 1.51273, 1.02571 )
 script = ExtResource( 1 )

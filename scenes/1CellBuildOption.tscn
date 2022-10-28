@@ -9,9 +9,3 @@ margin_right = 64.512
 margin_bottom = 64.064
 text = "1 cell"
 script = ExtResource( 1 )
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-margin_right = 64.0
-margin_bottom = 64.0
-color = Color( 0.247059, 0.309804, 0.713726, 1 )

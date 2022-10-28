@@ -4,6 +4,10 @@ var aStarPointPath = []
 var loiterPosition: AStarPosition
 var nextPosition: Vector2Obj
 var speed = 25
+var dexterity = 0
+var intelligence = 0
+var strength = 0
+
 export(String) var antName
 
 class_name Ant
@@ -11,6 +15,9 @@ class_name Ant
 enum activityEnum {LOITERING, WORKING}
 var activity = activityEnum.LOITERING
 
+func init(_antName):
+	antName = _antName
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	getNewLoiterPath()

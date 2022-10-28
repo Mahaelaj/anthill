@@ -11,8 +11,6 @@ var MAX_REDUCED_TIME_PERC = 50
 
 class_name WorkingRoom
 
-#// TODO: timer should not start if there are no ants in the room
-	
 func workingRoomInit(_horizontalTileSize: int, _loiterPositions, _workPositions, _timer: Timer, _maxTimerTime: int):
 	workPositions = _workPositions
 	assignedAnts.resize(workPositions.size())

@@ -97,7 +97,7 @@ _global_script_classes=[ {
 "base": "ColonyRoom",
 "class": "HatchingRoom",
 "language": "GDScript",
-"path": "res://scenes/rooms/HatchingRoom.gd"
+"path": "res://scripts/classes/colonyRooms/HatchingRoom.gd"
 }, {
 "base": "WorkingRoom",
 "class": "MarketRoom",
@@ -163,6 +163,7 @@ AntManager="*res://scripts/AntManager.gd"
 PathFinding="*res://scripts/PathFinding.gd"
 Grid="*res://scripts/Grid.gd"
 Sorters="*res://scripts/Sorters.gd"
+Names="*res://scripts/Names.gd"
 
 [display]
 

@@ -16,6 +16,7 @@ var ER = preload("res://scenes/rooms/ERoom.tscn")
 var FR = preload("res://scenes/rooms/FRoom.tscn")
 var StorageR = preload("res://scenes/rooms/StorageRoom.tscn")
 var MarketR = preload("res://scenes/rooms/MarketRoom.tscn")
+var HatchingR = preload("res://scenes/rooms/HatchingRoom.tscn")
 
 var funds = 0
 
@@ -128,7 +129,8 @@ func addRoom(roomType, row, col):
 			maxF += 300
 		MarketRoom:
 			room = MarketR.instance()
-
+		HatchingRoom:
+			room = HatchingR.instance()
 	room.init()
 	Grid.setCell(room, row, col)
 	$Rooms.add_child(room)
@@ -267,7 +269,6 @@ func updateResource(resourceType, count):
 			$HUDsManager/ResourceOverview/FBar.value = fPercentage
 			if remainder > 0:
 				addResourcesToMarket(Constants.ResourceType.F, remainder)
-				
 func updateFood(): 
 	var food = foodA
 	var maxFood = maxFoodA
@@ -291,3 +292,35 @@ func addResourcesToMarket(resourceType, count):
 func updateFunds(count):
 	funds += count
 	$HUDsManager/FoodEnergyBars/Funds.text = "$ " + str(funds)
+	
+func getResourceAmt(resourceType):
+	match resourceType:
+		Constants.ResourceType.FOOD_A:
+			return foodA
+		Constants.ResourceType.FOOD_B:
+			return foodB
+		Constants.ResourceType.FOOD_C:
+			return foodC
+		Constants.ResourceType.FOOD_D:
+			return foodD
+		Constants.ResourceType.FOOD_E:
+			return foodE
+		Constants.ResourceType.FOOD_F:
+			return foodF
+		Constants.ResourceType.A:
+			return a
+		Constants.ResourceType.B:
+			return b
+		Constants.ResourceType.C:
+			return c
+		Constants.ResourceType.D:
+			return d
+		Constants.ResourceType.E:
+			return e
+		Constants.ResourceType.F:
+			return f
+
+func createAnts(count, positions):
+	for i in range(0, count):
+		var ant = AntManager.createAnt(positions[i])
+		$Ants.add_child(ant)

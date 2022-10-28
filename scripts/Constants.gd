@@ -23,7 +23,23 @@ var resourcePrices = {
 	ResourceType.F: 4,
 }
 
+var maxAnts = 100
+
 var marketRoomsGroup = "MarketRooms"
 var workingRoomsGroup = "WorkingRooms"
 
-
+var resourceNames = {
+	ResourceType.FOOD_A: "Food A",
+	ResourceType.FOOD_B: "Food B",
+	ResourceType.FOOD_C: "Food C",
+	ResourceType.FOOD_D: "Food D",
+	ResourceType.FOOD_E: "Food E",
+	ResourceType.FOOD_F: "Food F",
+	ResourceType.ENERGY: "Energy",
+	ResourceType.A: "A",
+	ResourceType.B: "B",
+	ResourceType.C: "C",
+	ResourceType.D: "D",
+	ResourceType.E: "E",
+	ResourceType.F: "F",
+}
